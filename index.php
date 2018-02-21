@@ -5,8 +5,8 @@ if (empty($_GET)){
   header("HTTP/1.1 200 OK");
   header('Content-Type:text/plain');
 
-  echo $_GET['nsurl'] & 'pebble?units=' & $_GET['unit'];
-  $jsonResponse = file_get_contents($_GET['nsurl'] & 'pebble?units=' & $_GET['unit']);
+  echo $_GET['nsurl'] . 'pebble?units=' . $_GET['unit'];
+  $jsonResponse = file_get_contents($_GET['nsurl'] . 'pebble?units=' . $_GET['unit']);
   $jsonData = json_decode($jsonResponse);
 
   echo $jsonData;
