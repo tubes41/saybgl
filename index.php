@@ -1,5 +1,5 @@
 <?php
-if (empty($_GET)){
+if (empty($_SERVER['HTTP_nsurl']) || empty($_SERVER['HTTP_unit'])){
   header("HTTP/1.1 400 Bad Request");
 } else {
   header("HTTP/1.1 200 OK");
