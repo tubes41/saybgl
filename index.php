@@ -9,11 +9,7 @@ if (empty($_GET['nsurl']) || empty($_GET['unit'])){
   $speech = "Your BGL reading as of " . date("g:ia",$jsonData->bgs[0]->datetime) . " is " . $jsonData->bgs[0]->sgv . " and trending " . $jsonData->bgs[0]->direction;
 
   $myObj = (object)[
-	'messages' => (array)[
-		(object)[
-        		'speech' 	=>  $speech,
-        		'displayText'   =>  $speech
-		]
+        	'fulfillmentText' =>  $speech,
 	  ]
   ];
   $myJSON = json_encode($myObj);
