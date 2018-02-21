@@ -10,14 +10,11 @@ if (empty($_GET)){
   $jsonData = json_decode($jsonResponse);
 
   echo "GET Response:" . $jsonResponse . "\r\n";
-  echo "Decoded:" . $jsonData . "\r\n";
-
-  $myObj->timestamp = $jsonData->bgs->datetime;
-  $myObj->age = 30;
-  $myObj->city = "New York";
-
+  echo "Decoded:";var_dump($jsonData);
+  $myObj->timestamp = $jsonData->bgs[0]->datetime;
+  $myObj->sgv = $jsonData->bgs[0]->sgv;
+  $myObj->direction = $jsonData->bgs[0]->direction;
   $myJSON = json_encode($myObj);
-
-  echo "My JSON:" . $myJSON;
+  echo "My JSON:";var_dump($myJSON);
 }
 ?>
