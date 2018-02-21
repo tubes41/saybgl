@@ -5,7 +5,7 @@ if (empty($_GET)){
   header("HTTP/1.1 200 OK");
   header('Content-Type:application/json');
 
-  $jsonResponse = file_get_contents($_GET['nsurl'] . 'pebble?units=' . $_GET['unit']);
+  $jsonResponse = file_get_contents($_SERVER['HTTP_nsurl'] . 'pebble?units=' . $_SERVER['HTTP_unit']);
   $jsonData = json_decode($jsonResponse);
 
 $speech = "Your BGL reading as of " . date("g:ia",$jsonData->bgs[0]->datetime) . " is " . $jsonData->bgs[0]->sgv . " and trending " . $jsonData->bgs[0]->direction;
