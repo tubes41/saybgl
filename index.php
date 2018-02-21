@@ -12,8 +12,12 @@ $speech = "Your BGL reading as of " . date("g:ia",$jsonData->bgs[0]->datetime) .
 
 
   $myObj = (object)[
-    'speech' 		=>  $speech,
-    'displayText'   =>  $speech
+	  'messages' => (array)[
+		  (object)[
+        'speech' 		=>  $speech,
+        'displayText'   =>  $speech
+			]
+	  ]
   ];
   $myJSON = json_encode($myObj);
   var_dump($myJSON);
