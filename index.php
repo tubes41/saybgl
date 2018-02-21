@@ -8,9 +8,9 @@ if (empty($_GET['nsurl']) || empty($_GET['unit']) || empty($_GET['TZ'])){
 	error_log("Trend Direction: ". $jsonData->bgs[0]->direction);
 	error_log("EpochTime: ". $jsonData->bgs[0]->datetime);
 	date_default_timezone_set($_GET['TZ']);
-	error_log("DateTime: ". date("g:ia",$jsonData->bgs[0]->datetime));
+	error_log("DateTime: ". date("g:ia",($jsonData->bgs[0]->datetime)/1000));
 
-	$speech = "Your BGL reading as of " . date("g:ia",$jsonData->bgs[0]->datetime) . " is " . $jsonData->bgs[0]->sgv . " and trending " . $jsonData->bgs[0]->direction;
+	$speech = "Your BGL reading as of " . date("g:ia",($jsonData->bgs[0]->datetime)/1000) . " is " . $jsonData->bgs[0]->sgv . " and trending " . $jsonData->bgs[0]->direction;
 
 	$myObj = (object)[
 	'fulfillmentText' =>  $speech
