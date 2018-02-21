@@ -4,6 +4,8 @@ if (empty($_GET['nsurl']) || empty($_GET['unit'])){
 } else {
   $jsonResponse = file_get_contents($_GET['nsurl'] . 'pebble?units=' . $_GET['unit']);
   $jsonData = json_decode($jsonResponse);
+	error_log("SGV: ". $jsonData->bgs[0]->sgv);
+	error_log("Trend Direction: ". $jsonData->bgs[0]->direction);
   $speech = "Your BGL reading as of " . date("g:ia",$jsonData->bgs[0]->datetime) . " is " . $jsonData->bgs[0]->sgv . " and trending " . $jsonData->bgs[0]->direction;
 
   $myObj = (object)[
