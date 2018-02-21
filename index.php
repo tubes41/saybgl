@@ -5,7 +5,7 @@ if (empty($_GET)){
   $jsonResponse = file_get_contents($_GET['nsurl'] & 'pebble?units=' & $_GET['unit']);
   $jsonData = json_decode($jsonResponse);
 
-  echo $_GET['nsurl'];
+  echo $jsonData;
 
   $myObj->timestamp = $jsonData->bgs->datetime;
   $myObj->age = 30;
