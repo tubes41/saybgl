@@ -10,7 +10,7 @@ if (empty($_GET['nsurl']) || empty($_GET['unit']) || empty($_GET['TZ'])){
 	date_default_timezone_set($_GET['TZ']);
 	error_log("DateTime: ". date("g:ia",($jsonData->bgs[0]->datetime)/1000));
 
-	$speech = "Your BGL reading as of " . date("g:ia",($jsonData->bgs[0]->datetime)/1000) . " is " . $jsonData->bgs[0]->sgv . " and trending " . $jsonData->bgs[0]->direction;
+	$speech = "Your BGL reading as of " . date("g:ia",($jsonData->bgs[0]->datetime)/1000) . " is " . $jsonData->bgs[0]->sgv . " " . urldecode($_GET['unit']) . " and trending " . $jsonData->bgs[0]->direction;
 
 	$myObj = (object)[
 	'fulfillmentText' =>  $speech
