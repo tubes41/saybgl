@@ -2,7 +2,7 @@
 if (empty($_GET['nsurl']) || empty($_GET['unit'])){
   header("HTTP/1.1 400 Bad Request");
 } else {
-  $jsonResponse = file_get_contents($_GET['nsurl'] . 'pebble?units=' . $_GET['unit']);
+  $jsonResponse = file_get_contents(urldecode($_GET['nsurl']) . 'pebble?units=' . urldecode($_GET['unit']));
   $jsonData = json_decode($jsonResponse);
 	error_log("SGV: ". $jsonData->bgs[0]->sgv);
 	error_log("Trend Direction: ". $jsonData->bgs[0]->direction);
