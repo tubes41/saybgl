@@ -1,10 +1,26 @@
 'use strict';
 
+var express = require('express');
+var app = express();
+
+app.get('/', function(req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(3000, function() {
+  console.log('Example app listening on port 3000!');
+});
+
+
+/*
+
+
+
 process.env.DEBUG = 'actions-on-google:*';
 
 const ActionsSdkApp = require('actions-on-google').ActionsSdkApp;
 
-exports.sayNumber = functions.https.onRequest((request, response) => {
+exports.saybgl = functions.https.onRequest((request, response) => {
   const app = new ActionsSdkApp({request, response});
 
   function mainIntent (app) {
@@ -13,7 +29,7 @@ exports.sayNumber = functions.https.onRequest((request, response) => {
     var url = "https://cgm-remote-monitorf2ed.azurewebsites.net/pebble?" +
     "units=mmol";
     
-    request({
+    internalrequest({
         url: url,
         json: true
     }, function (error, response, body) {
@@ -33,3 +49,4 @@ exports.sayNumber = functions.https.onRequest((request, response) => {
   actionMap.set(app.StandardIntents.MAIN, mainIntent);
   app.handleRequest(actionMap);
 });
+*/
