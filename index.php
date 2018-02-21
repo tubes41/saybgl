@@ -1,6 +1,8 @@
 <?php
 if (empty($_SERVER['HTTP_nsurl']) || empty($_SERVER['HTTP_unit'])){
   header("HTTP/1.1 400 Bad Request");
+	echo ($_SERVER['HTTP_nsurl']);
+	echo ($_SERVER['HTTP_unit']);
 } else {
   header("HTTP/1.1 200 OK");
   header('Content-Type:application/json');
