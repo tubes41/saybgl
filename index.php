@@ -6,7 +6,7 @@ if (empty($_GET['nsurl']) || empty($_GET['unit']) || empty($_GET['TZ'])){
 	$jsonData = json_decode($jsonResponse);
 	error_log("SGV: ". $jsonData->bgs[0]->sgv);
 	error_log("Trend Direction: ". $jsonData->bgs[0]->direction);
-	date_default_timezone_set($_GET['TZ'])
+	date_default_timezone_set($_GET['TZ']);
 
 	$speech = "Your BGL reading as of " . date("g:ia",$jsonData->bgs[0]->datetime) . " is " . $jsonData->bgs[0]->sgv . " and trending " . $jsonData->bgs[0]->direction;
 
