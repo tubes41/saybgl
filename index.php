@@ -20,6 +20,6 @@ $speech = "Your BGL reading as of " . date("g:ia",$jsonData->bgs[0]->datetime) .
 	  ]
   ];
   $myJSON = json_encode($myObj);
-  var_dump($myJSON);
+  echo $myJSON;
 }
 ?>
